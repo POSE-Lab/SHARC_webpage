@@ -120,7 +120,7 @@
 
     .nav-links a {
       font-size: 0.95rem;
-      color: var(--muted);
+      color: #fff;
       text-decoration: none;
       letter-spacing: 0.05em;
       text-transform: uppercase;
@@ -259,13 +259,13 @@
     .affil a {
       color: var(--accent3);
       text-decoration: none;
-      border-bottom: 1px solid rgba(52, 211, 153, 0.35);
+      border-bottom: none;
       transition: border-color 0.2s, color 0.2s;
     }
 
     .affil a:hover {
       color: #fff;
-      border-bottom-color: rgba(52, 211, 153, 0.8);
+      border-bottom: none;
     }
 
     .hero-actions {
@@ -306,11 +306,11 @@
     .btn-secondary {
       background: transparent;
       color: var(--text);
-      border-color: var(--border);
+      border-color: rgba(255, 255, 255, 0.35);
     }
 
     .btn-secondary:hover {
-      border-color: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.6);
       background: var(--surface);
       transform: translateY(-1px);
     }
@@ -425,7 +425,8 @@
 
     .section-label {
       font-family: 'DM Sans', sans-serif;
-      font-size: 1.1rem;
+      font-size: clamp(1.5rem, 2.4vw, 2.15rem);
+      font-weight: 500;
       color: var(--accent);
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -539,6 +540,15 @@
       text-align: left;
     }
 
+    .keep-case {
+      text-transform: none !important;
+      letter-spacing: 0.02em;
+    }
+
+    #results th {
+      color: #fff;
+    }
+
     td {
       padding: 0.4rem 0.6rem;
       text-align: center;
@@ -583,6 +593,29 @@
       border-radius: 16px;
       overflow: hidden;
       padding: 0.5rem;
+    }
+
+    .shapenet-metrics-wrapper {
+      overflow-x: hidden;
+    }
+
+    .shapenet-results-table {
+      table-layout: fixed;
+      width: 100%;
+      font-size: 1.15rem;
+    }
+
+    .shapenet-results-table th,
+    .shapenet-results-table td {
+      padding: 0.24rem 0.16rem;
+      letter-spacing: 0.01em;
+      text-transform: none;
+      white-space: nowrap;
+    }
+
+    .shapenet-results-table th:first-child,
+    .shapenet-results-table td:first-child {
+      width: 8%;
     }
 
     /* ── RESULTS GALLERY ── */
@@ -1003,7 +1036,7 @@
       font-size: 1.35rem;
       color: var(--muted);
       text-align: center;
-      font-style: italic;
+      font-style: normal;
       border-top: 1px solid var(--border);
       background: var(--surface2);
     }
@@ -1303,19 +1336,19 @@
     </div>
 
     <div class="hero-actions">
-      <a href="https://github.com/pansap99/SHARC" class="btn btn-primary" target="_blank">
+      <a href="https://github.com/POSE-Lab/SHARC" class="btn btn-primary" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor">
           <path
             d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
         </svg>
         Code
       </a>
-      <a href="#" class="btn btn-secondary">
+      <a href="https://arxiv.org/abs/2604.01894" class="btn btn-secondary" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
           <polyline points="14 2 14 8 20 8" />
         </svg>
-        Paper (PDF)
+        arXiv
       </a>
 
     </div>
@@ -1372,7 +1405,7 @@
   <!-- METHOD -->
   <div class="section-divider"></div>
   <section id="method">
-    <div class="section-label">Contributions</div>
+    <div class="section-label">Method</div>
     <h2>What Makes SHARC Different</h2>
 
     <div class="contrib-grid reveal">
@@ -1433,8 +1466,8 @@
             <tr>
               <th>Method</th>
               <th colspan="5" style="border-right:1px solid var(--border); color:#fff; font-weight:bold;">PSB</th>
-              <th colspan="5" style="border-right:1px solid var(--border); color:#fff; font-weight:bold;">Stanford</th>
-              <th colspan="5" style="color:#fff; font-weight:bold;">Thingi10k</th>
+              <th colspan="5" style="border-right:1px solid var(--border); color:#fff; font-weight:bold;"><span class="keep-case">Stanford</span></th>
+              <th colspan="5" style="color:#fff; font-weight:bold;"><span class="keep-case">Thingi10k</span></th>
             </tr>
             <tr>
               <th></th>
@@ -1535,6 +1568,142 @@
         \(d_{\mathrm{CD}}\) across all datasets with fewest primitives.</p>
     </div>
 
+    <!-- SHAPENET CATEGORY TABLE -->
+    <div class="table-wrap reveal" style="margin-top: 1.5rem;">
+      <div class="metrics-wrapper shapenet-metrics-wrapper">
+        <table class="shapenet-results-table">
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th colspan="5" style="border-right:1px solid var(--border); color:#fff; font-weight:bold;">Ours</th>
+              <th colspan="5" style="border-right:1px solid var(--border); color:#fff; font-weight:bold;">Mash</th>
+              <th colspan="5" style="border-right:1px solid var(--border); color:#fff; font-weight:bold;">Coverageaxis++</th>
+              <th colspan="5" style="color:#fff; font-weight:bold;">Raw Ma</th>
+            </tr>
+            <tr>
+              <th></th>
+              <th>\(|\mathcal{C}|\)</th>
+              <th>\(d_{\mathrm{CD}}\)</th>
+              <th>\(\overrightarrow{\epsilon}\)</th>
+              <th>\(\overleftarrow{\epsilon}\)</th>
+              <th style="border-right:1px solid var(--border);">\(\overleftrightarrow{\epsilon}\)</th>
+              <th>\(|\mathcal{C}|\)</th>
+              <th>\(d_{\mathrm{CD}}\)</th>
+              <th>\(\overrightarrow{\epsilon}\)</th>
+              <th>\(\overleftarrow{\epsilon}\)</th>
+              <th style="border-right:1px solid var(--border);">\(\overleftrightarrow{\epsilon}\)</th>
+              <th>\(|\mathcal{C}|\)</th>
+              <th>\(d_{\mathrm{CD}}\)</th>
+              <th>\(\overrightarrow{\epsilon}\)</th>
+              <th>\(\overleftarrow{\epsilon}\)</th>
+              <th style="border-right:1px solid var(--border);">\(\overleftrightarrow{\epsilon}\)</th>
+              <th>\(|\mathcal{C}|\)</th>
+              <th>\(d_{\mathrm{CD}}\)</th>
+              <th>\(\overrightarrow{\epsilon}\)</th>
+              <th>\(\overleftarrow{\epsilon}\)</th>
+              <th>\(\overleftrightarrow{\epsilon}\)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Airplane</strong></td>
+              <td class="bold-td">46</td>
+              <td class="bold-td">0.23</td>
+              <td>0.92</td>
+              <td class="bold-td">0.53</td>
+              <td style="border-right:1px solid var(--border);">0.97</td>
+              <td>200</td>
+              <td>0.27</td>
+              <td>1.21</td>
+              <td>1.47</td>
+              <td style="border-right:1px solid var(--border);">1.63</td>
+              <td>199</td>
+              <td>0.49</td>
+              <td>2.79</td>
+              <td>1.55</td>
+              <td style="border-right:1px solid var(--border);">2.80</td>
+              <td>82k</td>
+              <td>0.30</td>
+              <td class="bold-td">0.90</td>
+              <td>0.58</td>
+              <td class="bold-td">0.91</td>
+            </tr>
+            <tr>
+              <td><strong>Chair</strong></td>
+              <td class="bold-td">99</td>
+              <td class="bold-td">0.35</td>
+              <td class="bold-td">0.83</td>
+              <td class="bold-td">0.89</td>
+              <td style="border-right:1px solid var(--border);" class="bold-td">1.02</td>
+              <td>200</td>
+              <td>0.46</td>
+              <td>1.47</td>
+              <td>2.67</td>
+              <td style="border-right:1px solid var(--border);">2.72</td>
+              <td>200</td>
+              <td>0.72</td>
+              <td>3.49</td>
+              <td>2.34</td>
+              <td style="border-right:1px solid var(--border);">3.52</td>
+              <td>83k</td>
+              <td>0.44</td>
+              <td>1.11</td>
+              <td>0.98</td>
+              <td>1.15</td>
+            </tr>
+            <tr>
+              <td><strong>Lamp</strong></td>
+              <td class="bold-td">59</td>
+              <td class="bold-td">0.28</td>
+              <td>2.37</td>
+              <td>0.75</td>
+              <td style="border-right:1px solid var(--border);">2.60</td>
+              <td>200</td>
+              <td>0.34</td>
+              <td class="bold-td">1.51</td>
+              <td>2.14</td>
+              <td style="border-right:1px solid var(--border);">2.33</td>
+              <td>167</td>
+              <td>0.54</td>
+              <td>3.79</td>
+              <td>1.63</td>
+              <td style="border-right:1px solid var(--border);">3.87</td>
+              <td>71k</td>
+              <td>0.32</td>
+              <td>2.20</td>
+              <td class="bold-td">0.65</td>
+              <td class="bold-td">2.22</td>
+            </tr>
+            <tr>
+              <td><strong>Sofa</strong></td>
+              <td class="bold-td">116</td>
+              <td class="bold-td">0.36</td>
+              <td class="bold-td">0.86</td>
+              <td>1.06</td>
+              <td style="border-right:1px solid var(--border);" class="bold-td">1.19</td>
+              <td>200</td>
+              <td>0.43</td>
+              <td>1.63</td>
+              <td>1.96</td>
+              <td style="border-right:1px solid var(--border);">2.16</td>
+              <td>200</td>
+              <td>0.79</td>
+              <td>4.41</td>
+              <td>2.61</td>
+              <td style="border-right:1px solid var(--border);">4.41</td>
+              <td>85k</td>
+              <td>0.44</td>
+              <td>1.65</td>
+              <td class="bold-td">0.96</td>
+              <td>1.68</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-caption">Quantitative comparison across four <span class="keep-case">ShapeNet</span> categories (Airplane, Chair, Lamp, Sofa).
+        We evaluate 100 models per category. Best values are highlighted in bold.</p>
+    </div>
+
     <!-- RUNTIME BAR CHART -->
     <div style="margin-top: 2rem;" class="reveal">
       <div style="background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:2rem;">
@@ -1570,13 +1739,14 @@
         SHARC (Ours), MASH, CoverageAxis++ (CA++), and Raw MA. Press the buttons to switch between dataset results.</p>
 
       <div class="gallery-tabs">
-        <button class="gallery-tab active" onclick="switchGallery('psb')">PSB Dataset</button>
+        <button class="gallery-tab" onclick="switchGallery('psb')">PSB Dataset</button>
         <button class="gallery-tab" onclick="switchGallery('thingi')">Thingi10k Dataset</button>
-        <button class="gallery-tab" onclick="switchGallery('shapenet')">ShapeNet</button>
+        <button class="gallery-tab active" onclick="switchGallery('shapenet')">ShapeNet Dataset</button>
+        <button class="gallery-tab" onclick="switchGallery('stanford')">Stanford Dataset</button>
       </div>
 
       <!-- PSB Panel -->
-      <div class="gallery-panel active" id="panel-psb">
+      <div class="gallery-panel" id="panel-psb">
         <div class="gallery-row">
           <div class="gallery-row-label">Ant</div>
           <div class="gallery-images">
@@ -1808,7 +1978,7 @@
       </div>
 
       <!-- ShapeNet Panel -->
-      <div class="gallery-panel" id="panel-shapenet">
+      <div class="gallery-panel active" id="panel-shapenet">
         <div class="gallery-row">
           <div class="gallery-row-label">Airplane 1</div>
           <div class="gallery-images">
@@ -1959,6 +2129,130 @@
           </div>
         </div>
       </div>
+
+      <!-- Stanford Panel -->
+      <div class="gallery-panel" id="panel-stanford">
+        <div class="gallery-row">
+          <div class="gallery-row-label">Armadillo</div>
+          <div class="gallery-images">
+            <div class="gallery-img-col"><img src="assets/renders/stanford/Armadillo_gt.png" alt="Armadillo GT" loading="lazy">
+              <div class="gallery-img-label">Ground Truth</div>
+            </div>
+            <div class="gallery-img-col"><img src="assets/renders/stanford/Armadillo_ours.001.png" alt="Armadillo SHARC" loading="lazy">
+              <div class="gallery-img-label ours-label">SHARC (Ours)</div>
+            </div>
+            <div class="gallery-img-col"><img src="assets/renders/stanford/Armadillo_mash.001.png" alt="Armadillo MASH" loading="lazy">
+              <div class="gallery-img-label">MASH</div>
+            </div>
+            <div class="gallery-img-col"><img src="assets/renders/stanford/Armadillo_CA.png" alt="Armadillo CA++" loading="lazy">
+              <div class="gallery-img-label">CA++</div>
+            </div>
+            <div class="gallery-img-col"><img src="assets/renders/stanford/Armadillo_raw_ma.001.png" alt="Armadillo Raw MA" loading="lazy">
+              <div class="gallery-img-label">Raw MA</div>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-row">
+          <div class="gallery-row-label">Bunny</div>
+          <div class="gallery-images">
+            <div class="gallery-img-col"><img src="assets/renders/stanford/Bunny_gt.001.png" alt="Bunny GT" loading="lazy">
+              <div class="gallery-img-label">Ground Truth</div>
+            </div>
+            <div class="gallery-img-col"><img src="assets/renders/stanford/Bunny_ours.png" alt="Bunny SHARC" loading="lazy">
+              <div class="gallery-img-label ours-label">SHARC (Ours)</div>
+            </div>
+            <div class="gallery-img-col"><img src="assets/renders/stanford/Bunny_mash.png" alt="Bunny MASH" loading="lazy">
+              <div class="gallery-img-label">MASH</div>
+            </div>
+            <div class="gallery-img-col"><img src="assets/renders/stanford/Bunny_CA.001.png" alt="Bunny CA++" loading="lazy">
+              <div class="gallery-img-label">CA++</div>
+            </div>
+            <div class="gallery-img-col"><img src="assets/renders/stanford/Bunny_raw_ma.png" alt="Bunny Raw MA" loading="lazy">
+              <div class="gallery-img-label">Raw MA</div>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-row">
+          <div class="gallery-row-label">Dragon</div>
+          <div class="gallery-images">
+            <div class="gallery-img-col"><img src="assets/renders/stanford/dragon_gt.002.png" alt="Dragon GT" loading="lazy">
+              <div class="gallery-img-label">Ground Truth</div>
+            </div>
+            <div class="gallery-img-col"><img src="assets/renders/stanford/dragon_ours.002.png" alt="Dragon SHARC" loading="lazy">
+              <div class="gallery-img-label ours-label">SHARC (Ours)</div>
+            </div>
+            <div class="gallery-img-col"><img src="assets/renders/stanford/dragon_mash.002.png" alt="Dragon MASH" loading="lazy">
+              <div class="gallery-img-label">MASH</div>
+            </div>
+            <div class="gallery-img-col"><img src="assets/renders/stanford/dragon_CA.002.png" alt="Dragon CA++" loading="lazy">
+              <div class="gallery-img-label">CA++</div>
+            </div>
+            <div class="gallery-img-col"><img src="assets/renders/stanford/dragon_raw_ma.002.png" alt="Dragon Raw MA" loading="lazy">
+              <div class="gallery-img-label">Raw MA</div>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-row">
+          <div class="gallery-row-label">Happy Buddha</div>
+          <div class="gallery-images">
+            <div class="gallery-img-col"><img src="assets/renders/stanford/happy_gt.003.png" alt="Happy Buddha GT" loading="lazy">
+              <div class="gallery-img-label">Ground Truth</div>
+            </div>
+            <div class="gallery-img-col"><img src="assets/renders/stanford/happy_ours.003.png" alt="Happy Buddha SHARC" loading="lazy">
+              <div class="gallery-img-label ours-label">SHARC (Ours)</div>
+            </div>
+            <div class="gallery-img-col"><img src="assets/renders/stanford/happy_mash.003.png" alt="Happy Buddha MASH" loading="lazy">
+              <div class="gallery-img-label">MASH</div>
+            </div>
+            <div class="gallery-img-col"><img src="assets/renders/stanford/happy_CA.003.png" alt="Happy Buddha CA++" loading="lazy">
+              <div class="gallery-img-label">CA++</div>
+            </div>
+            <div class="gallery-img-col"><img src="assets/renders/stanford/happy_raw_ma.003.png" alt="Happy Buddha Raw MA" loading="lazy">
+              <div class="gallery-img-label">Raw MA</div>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-row">
+          <div class="gallery-row-label">Asian Dragon</div>
+          <div class="gallery-images">
+            <div class="gallery-img-col"><img src="assets/renders/stanford/xyz_dragon_gt.004.png" alt="Asian Dragon GT" loading="lazy">
+              <div class="gallery-img-label">Ground Truth</div>
+            </div>
+            <div class="gallery-img-col"><img src="assets/renders/stanford/xyz_dragon_ours.004.png" alt="Asian Dragon SHARC" loading="lazy">
+              <div class="gallery-img-label ours-label">SHARC (Ours)</div>
+            </div>
+            <div class="gallery-img-col"><img src="assets/renders/stanford/xyz_dragon_mash.004.png" alt="Asian Dragon MASH" loading="lazy">
+              <div class="gallery-img-label">MASH</div>
+            </div>
+            <div class="gallery-img-col"><img src="assets/renders/stanford/xyz_dragon_CA.004.png" alt="Asian Dragon CA++" loading="lazy">
+              <div class="gallery-img-label">CA++</div>
+            </div>
+            <div class="gallery-img-col"><img src="assets/renders/stanford/xyz_dragon_raw_ma.004.png" alt="Asian Dragon Raw MA" loading="lazy">
+              <div class="gallery-img-label">Raw MA</div>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-row">
+          <div class="gallery-row-label">Thai Statue</div>
+          <div class="gallery-images">
+            <div class="gallery-img-col"><img src="assets/renders/stanford/xyz_statuette_gt.005.png" alt="Thai Statue GT" loading="lazy">
+              <div class="gallery-img-label">Ground Truth</div>
+            </div>
+            <div class="gallery-img-col"><img src="assets/renders/stanford/xyz_statuette_ours.005.png" alt="Thai Statue SHARC" loading="lazy">
+              <div class="gallery-img-label ours-label">SHARC (Ours)</div>
+            </div>
+            <div class="gallery-img-col"><img src="assets/renders/stanford/xyz_statuette_mash.005.png" alt="Thai Statue MASH" loading="lazy">
+              <div class="gallery-img-label">MASH</div>
+            </div>
+            <div class="gallery-img-col"><img src="assets/renders/stanford/xyz_statuette_CA.005.png" alt="Thai Statue CA++" loading="lazy">
+              <div class="gallery-img-label">CA++</div>
+            </div>
+            <div class="gallery-img-col"><img src="assets/renders/stanford/xyz_statuette_raw_ma.005.png" alt="Thai Statue Raw MA" loading="lazy">
+              <div class="gallery-img-label">Raw MA</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -2061,21 +2355,21 @@
         </div>
         <button class="copy-btn" onclick="copyBibtex(this)">copy</button>
       </div>
-      <pre id="bibtex-content"><span class="brace">@inproceedings{</span><span class="val">sapoutzoglou2026sharc</span><span class="brace">,</span>
-  <span class="key">title</span>     = <span class="brace">{</span><span class="val">SHARC: Reference Point Driven Spherical Harmonic
-               Representation for Complex Shapes</span><span class="brace">},</span>
-  <span class="key">author</span>    = <span class="brace">{</span><span class="val">Sapoutzoglou, Panagiotis and Terzakis, George
-               and Pateraki, Maria</span><span class="brace">},</span>
-  <span class="key">booktitle</span> = <span class="brace">{</span><span class="val">International Conference on Pattern Recognition (ICPR)</span><span class="brace">},</span>
-  <span class="key">year</span>      = <span class="brace">{</span><span class="val">2026</span><span class="brace">},</span>
-  <span class="key">note</span>      = <span class="brace">{</span><span class="val">National Technical University of Athens</span><span class="brace">}</span>
-<span class="brace">}</span></pre>
+      <pre id="bibtex-content">@article{sapoutzoglou2026sharc,
+      title={SHARC: Reference point driven Spherical Harmonic Representation for Complex Shapes},
+      author={Panagiotis Sapoutzoglou and George Terzakis and Maria Pateraki},
+      year={2026},
+      journal={arXiv:2604.01894}
+    }</pre>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p>SHARC · ICPR 2026 · National Technical University of Athens</p>
+    <p>SHARC &middot; ICPR 2026 &middot; National Technical University of Athens</p>
+    <p style="margin-top: 0.5rem; font-size: 0.9em; opacity: 0.8;">
+      &copy; 2026 &middot; <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank" style="color: inherit; text-decoration: underline;">CC BY 4.0</a>
+    </p>
   </footer>
 
   <script>
@@ -2324,18 +2618,20 @@
         responsive: true,
         maintainAspectRatio: false,
         interaction: { mode: 'index', intersect: false },
+        events: [],
         plugins: {
           legend: {
             position: 'top',
-            labels: { color: '#e8eaf0', usePointStyle: true, boxWidth: 6, font: { family: "'DM Sans', sans-serif", size: 16 } }
+            labels: {
+              color: '#e8eaf0',
+              usePointStyle: true,
+              boxWidth: 4,
+              boxHeight: 4,
+              pointStyleWidth: 8,
+              font: { family: "'DM Sans', sans-serif", size: 16 }
+            }
           },
-          tooltip: {
-            backgroundColor: '#161b24',
-            titleFont: { family: "'DM Sans', sans-serif", size: 13 },
-            bodyFont: { family: "'DM Sans', sans-serif", size: 12 },
-            borderColor: 'rgba(255,255,255,0.1)',
-            borderWidth: 1
-          }
+          tooltip: { enabled: false }
         },
         scales: {
           x: {
